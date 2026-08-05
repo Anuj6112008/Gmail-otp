@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: otp-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASS
+        sync: false
+      - key: FROM_EMAIL
+        sync: false
